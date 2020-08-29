@@ -1,0 +1,24 @@
+{% extends "master.html" %} {% load static %} {% block title %}
+<h3>Call of Roll</h3>
+{% endblock %} {% block content %}
+<div class="container">
+	<form method="post" class="mt-3">
+    {% csrf_token %}
+    <input type="date" name="calendar">
+		{% for student in liste %}
+		<div class="row">
+			<div class="col-1">
+				<input type="checkbox" name="student{{student.id}}">
+      </div>
+			<div class="col-2"><a href="{%url 'detail_student' student.id%}">{{student.first_name}} {{student.last_name}}
+				</a>
+			</div>
+		</div>
+		{% endfor %}
+    <div class="mt-3">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+    
+	</form>
+</div>
+{% endblock %}

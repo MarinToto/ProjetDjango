@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <h3>Particular call of roll</h3>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        
+        {{ form | crispy }}
+    
+        <div class="boutons">
+            <a class="btn btn-outline-warning" href="/lycee">Cancel</a>
+           <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}

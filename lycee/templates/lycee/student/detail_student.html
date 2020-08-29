@@ -1,0 +1,21 @@
+{% extends "master.html" %} {% if liste %} {% block title %}
+<h3>Details of a student</h3>
+{% endblock %} {% block content %}
+<div class="container">
+	<div class="row">
+		<h3>{{liste.first_name }} {{liste.last_name}}</h3>
+		<ul>
+			<li>{{liste.birth_date}}</li>
+			<li>{{liste.phone}}</li>
+			<li>{{liste.email|lower}}</li>
+			<li>{{liste.cursus}}</li>
+		</ul>
+	</div>
+	<div class="row">
+		<a class="btn btn-primary mb-2 text-white" href="/lycee/student/edit/{{liste.id}}">Edit</a>
+	</div>
+</div>
+
+{% endblock %} {% else %}
+<p>No student to show.</p>
+{% endif %}
